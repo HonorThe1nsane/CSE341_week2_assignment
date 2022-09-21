@@ -1,19 +1,27 @@
 {
-  "name": "REST-practice",
+  "name": "cse341_team-assignments",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Team Assignment Lesson 2",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HonorThe1nsane/CSE341_Team-Assignments.git"
+  },
+  "author": "Troy Davidson",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+  "bugs": {
+    "url": "https://github.com/HonorThe1nsane/CSE341_Team-Assignments/issues"
   },
+  "homepage": "https://github.com/HonorThe1nsane/CSE341_Team-Assignments#readme",
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1"
   }
 }
