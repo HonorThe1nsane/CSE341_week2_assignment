@@ -12,7 +12,7 @@ app.use(bodyParser.json())
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use('/contacts', contactsRoutes);
+  .use('/', contactsRoutes);
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
