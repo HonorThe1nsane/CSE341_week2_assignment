@@ -1,8 +1,8 @@
 
 
-GET http://localhost:8080
+GET http://localhost:8080/contacts
 # the request above returns a json object with all contact information from data
 
 
 
-GET http://localhost:8080/contacts
+GET https://cse-341-w02-personal-assignment-troy-d.onrender.com
