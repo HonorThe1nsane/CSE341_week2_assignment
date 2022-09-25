@@ -22,5 +22,4 @@ const getSingleData = async (req, res, next) => {
 };
 
 module.exports = { getSingleData, getData };
-// module.exports = { getData };
 
