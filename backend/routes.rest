@@ -1,2 +1,2 @@
-GET http://localhost:8080/contacts
+GET http://localhost:8080/test/contacts
 # the request above returns a json object with all contact information from data
