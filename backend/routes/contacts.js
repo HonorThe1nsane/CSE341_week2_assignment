@@ -1,13 +1,13 @@
-const express = require('express');
 
+const router = require('express').Router();
 const contactController = require('../controllers/contacts');
 
-const router = express.Router();
 
 // GET /feed/posts
+router.get('/', contactController.getData);
 
 router.get('/', contactController.getSingleData);
-router.get('/', contactController.getData );
-// localhost:8080/professional/
+
+// localhost:8080
 module.exports = router;
 

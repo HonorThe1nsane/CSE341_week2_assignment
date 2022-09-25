@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
-const professionalRoutes = require('./routes/contacts');
+const contactsRoutes = require('./routes/contacts');
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -12,7 +12,7 @@ app.use(bodyParser.json())
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use('/', require('./routes/contacts') );
+  .use('/', contactsRoutes);
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
