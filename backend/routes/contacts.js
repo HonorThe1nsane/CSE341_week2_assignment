@@ -1,6 +1,6 @@
 const express = require('express');
 
-const professionalController = require('../controllers/professional');
+const professionalController = require('../controllers/contacts');
 
 const router = express.Router();
 

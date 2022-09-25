@@ -1,0 +1,23 @@
+{
+    "contact": {
+        "firstName": "Troy",
+        "lastName": "Davidson",
+        "email": "tdawg@test.com",
+        "favoriteColor": "Red",
+        "birthday": "12/26/1980"
+    },
+    "contact2": {
+        "firstName": "Harmony",
+        "lastName": "Davidson",
+        "email": "hottiemama@test.com",
+        "favoriteColor": "Teal",
+        "birthday": "12/17/1980"
+    },
+    "contact3": {
+        "firstName": "Hyrum",
+        "lastName": "Davidson",
+        "email": "hdawgkid@test.com",
+        "favoriteColor": "Red",
+        "birthday": "03/05/1980"
+    }
+}
