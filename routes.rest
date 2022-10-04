@@ -8,8 +8,6 @@ GET http://localhost:8080/contacts
 
 GET http://localhost:8080/contacts/632ff12d7419b9a97ed58cf9
 
-###
-GET http://localhost:8080/contacts/633b844a2ffdf3c327b3dc9c
 
 ### Create contact
 POST http://localhost:8080/contacts HTTP/1.1
@@ -36,7 +34,7 @@ content-type: application/json
     "favoriteColor":"Green",
     "birthday":"05/04/1901"
 }
-### DELETE contact 
+### DELETE contact
 DELETE http://localhost:8080/contacts/633b844a2ffdf3c327b3dc9c HTTP/1.1
 
 

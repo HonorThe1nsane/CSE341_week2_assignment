@@ -24,11 +24,11 @@ const getSingleData = async (req, res) => {
 
 const createNewContact = async (req, res) => {
   const contact = {
-    "firstName": req.body.firstName,
-    "lastName": req.body.lastName,
-    "email": req.body.email,
-    "favoriteColor": req.body.favoriteColor,
-    "birthday": req.body.birthday
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
   };
   const response = await mongodb.getDb().db().collection('people').insertOne(contact);
   if (response.acknowledged) {
@@ -55,6 +55,8 @@ const updatePerson = async (req, res) => {
     res.status(500).json(response.error || 'Some error occurred while updating the person in contacts.');
   }
 };
+
+
 
 const deletePerson = async (req, res) => {
   const userId = new ObjectId(req.params.id);
