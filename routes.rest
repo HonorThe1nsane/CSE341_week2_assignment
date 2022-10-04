@@ -1,8 +1,18 @@
 
 
-GET http://localhost:8080
+GET http://localhost:8080/contacts
 # the request above returns a json object with all contact information from data
 
 
+###Single requests
+
+GET http://localhost:8080/contacts/632ff12d7419b9a97ed58cf9
+
+### Create contact POST http://localhost:8080/contacts HTTP/1.1 content-type: application/json
+
+POST http://localhost:8080/contacts/people/"firstName":"Dennis", "lastName":"Davidson", "email":"dDavidson@booya.com", "favoriteColor":"Red", "birthday":"05/04/1901"
+
+
+###
 
 GET https://cse-341-w02-personal-assignment-troy-d.onrender.com

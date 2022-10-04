@@ -1,15 +1,18 @@
 
 const express = require('express');
 const router = express.Router();
-const contactController = require('../controllers/contacts');
+const contactsController = require('../controllers/contacts');
 
 
 // GET /feed/posts
 
-router.get('/', contactController.getData);
+router.get('/', contactsController.getData);
 
-router.get('/:id', contactController.getSingleData);
+router.get('/:id', contactsController.getSingleData);
 
+router.post('/', contactsController.createNewContact);
+
+router.put('/:id', contactsController.updatePerson);
 // localhost:8080
 module.exports = router;
 
