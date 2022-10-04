@@ -21,7 +21,7 @@ content-type: application/json
     "birthday":"05/04/1901"
 }
 
-###
+
 
 ### PUT contact
 PUT http://localhost:8080/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
@@ -40,5 +40,42 @@ DELETE http://localhost:8080/contacts/633b844a2ffdf3c327b3dc9c HTTP/1.1
 
 
 
-###Render
-GET https://cse-341-w02-personal-assignment-troy-d.onrender.com
+###Render Production
+
+
+GET https://cse-341-w02-personal-assignment-troy-d.onrender.com/contacts
+# the request above returns a json object with all contact information from data
+
+
+###Single requests
+
+GET https://cse-341-w02-personal-assignment-troy-d.onrender.com/contacts/632ff12d7419b9a97ed58cf9
+
+
+### Create contact
+POSThttps://cse-341-w02-personal-assignment-troy-d.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Dennis",
+    "lastName":"Davidson",
+    "email":"dDavidson@booya.com",
+    "favoriteColor":"Red",
+    "birthday":"05/04/1901"
+}
+
+
+
+### PUT contact
+PUThttps://cse-341-w02-personal-assignment-troy-d.onrender.com/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Dennis",
+    "lastName":"Davidson",
+    "email":"dDavidson@testboy.com",
+    "favoriteColor":"Green",
+    "birthday":"05/04/1901"
+}
+### DELETE contact
+DELETEhttps://cse-341-w02-personal-assignment-troy-d.onrender.com/contacts/633b844a2ffdf3c327b3dc9c HTTP/1.1
