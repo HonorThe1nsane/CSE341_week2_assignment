@@ -3,6 +3,22 @@ const express = require('express');
 const router = express.Router();
 const contactsController = require('../controllers/contacts');
 
+module.exports = (mongoose) => {
+    const Person = mongoose.model(
+        'person',
+        mongoose.Schema(
+            {
+                firstName: String,
+                lastName: String,
+                email: String,
+                favoriteColor: String,
+                birthday: String,
+            },
+            { timestamps: true }
+        )
+    );
+    return Person;
+};
 
 // GET /feed/posts
 

@@ -39,6 +39,11 @@ const createNewContact = async (req, res) => {
 };
 
 const updatePerson = async (req, res) => {
+  if (!req.body) {
+        return res.status(400).send({
+          message: 'Data to update can not be empty!',
+        });
+      }
   const userId = new ObjectId(req.params.id);
   const person = {
     firstName: req.body.firstName,
