@@ -1,7 +1,11 @@
 
 const ObjectId = require('mongodb').ObjectId;
-//const { ObjectID } = require('bson');
+
 const mongodb = require('../db/connect');
+const Person = mongodb.person;
+
+const apiKey = '1RAHIc5c6J1SJ12pTp45vBlafXjJjuQrlCOnokutFJ0SduckeOZEr59HhwZhWTbN';
+
 
 const getData = async (req, res) => {
   const result = await mongodb.getDb().db().collection('people').find();
@@ -10,6 +14,31 @@ const getData = async (req, res) => {
     res.status(200).json(lists);
 
   });
+  console.log(req.header('apiKey'));
+  if (req.header('apiKey') === apiKey) {
+    Person.find(
+      {},
+      {
+        firstName: 1,
+        lastName: 1,
+        email: 1,
+        favoriteColor: 1,
+        birthday: 1,
+        _id: 0,
+      }
+    )
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message || 'Some error occurred while retrieving temples.',
+        });
+      });
+  } else {
+    res.send('Invalid apiKey, please read the documentation.');
+  }
 };
 
 const getSingleData = async (req, res) => {
@@ -20,6 +49,24 @@ const getSingleData = async (req, res) => {
     res.status(200).json(lists[0]);
 
   });
+  const id = req.params.id;
+  if (req.header('apiKey') === apiKey) {
+    Person.find({ _id: id })
+      .then((data) => {
+        if (!data)
+          res
+            .status(404)
+            .send({ message: 'Not Person found  with id ' + _id });
+        else res.send(data[0]);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: 'Error retrieving Person with id=' + _id,
+        });
+      });
+  } else {
+    res.send('Invalid apiKey, please read the documentation.');
+  }
 };
 
 const createNewContact = async (req, res) => {
@@ -40,10 +87,10 @@ const createNewContact = async (req, res) => {
 
 const updatePerson = async (req, res) => {
   if (!req.body) {
-        return res.status(400).send({
-          message: 'Data to update can not be empty!',
-        });
-      }
+    return res.status(400).send({
+      message: 'Data to update can not be empty!',
+    });
+  }
   const userId = new ObjectId(req.params.id);
   const person = {
     firstName: req.body.firstName,
