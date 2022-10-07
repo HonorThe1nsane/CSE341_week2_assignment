@@ -60,7 +60,7 @@ const getSingleData = async (req, res) => {
 
 };
 //Work with swagger
-exports.findOne = (req, res) => {
+exports.getSingleData = (req, res) => {
 
   const id = new ObjectId(req.params.id);
   console.log(id);
@@ -150,9 +150,9 @@ exports.update = (req, res) => {
     });
   }
 
-  const id = new ObjectId(req.params.id);;
+  const id = new ObjectId(req.params.id);
 
-  Temple.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Person.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -168,7 +168,7 @@ exports.update = (req, res) => {
 };
 
 
-
+//Rest client
 const deletePerson = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   const response = await mongodb.getDb().db().collection('people').remove({ _id: userId }, true);
@@ -180,5 +180,29 @@ const deletePerson = async (req, res) => {
   }
 };
 
+// Swagger
+
+// Delete a Temple with the specified id in the request
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Person.findByIdAndRemove(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete Person with id=${id}. Maybe the person was not found!`,
+        });
+      } else {
+        res.send({
+          message: 'Person was deleted successfully!',
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: 'Could not delete Person with id=' + id,
+      });
+    });
+};
 
 module.exports = { getSingleData, getData, createNewContact, updatePerson, deletePerson };
