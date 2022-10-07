@@ -1,4 +1,4 @@
-const dbConfig = require('../connect.js');
+const dbConfig = require('../db/connect.js');
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
