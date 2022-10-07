@@ -78,60 +78,23 @@
           }
         }
       },
-      "/Contacts/{_id}": {
+      "/Contacts/{id}": {
         "get": {
           "description": "",
+          "produces": [
+            "application/json"
+          ],
           "parameters": [
             {
-              "name": "_id",
+              "name": "id",
               "in": "path",
               "required": true,
-              "type": "string"
-            },
-            {
-              "name": "apiKey",
-              "in": "header",
               "type": "string"
             }
           ],
           "responses": {
             "200": {
               "description": "OK"
-            },
-            "404": {
-              "description": "Not Found"
-            },
-            "500": {
-              "description": "Internal Server Error"
-            }
-          }
-        }
-      },
-        "delete": {
-          "description": "",
-          "parameters":[
-            {
-              "name":"_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "apiKey",
-              "in": "header",
-              "type": "string"
-            }
-          ],
-            "responses": {
-              "200": {
-                "description": "OK"
-              },
-              "404": {
-                "description": "Not Found"
-              },
-              "500": {
-                "description": "Internal Server Error"
-              }
             }
           }
         },
@@ -168,7 +131,36 @@
                 }
               }
             }
-          ]
+          ],
+          "responses": {
+            "204": {
+              "description": "No Content"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "delete": {
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "No Content"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
         }
       }
+    }
+  }
 
