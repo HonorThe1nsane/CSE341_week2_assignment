@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const mongodb = require('../db/connect');
 const { person } = require('../models');
-//const Person = mongodb.person;
+
 const db = require('../models');
 const Person = db.person;
 

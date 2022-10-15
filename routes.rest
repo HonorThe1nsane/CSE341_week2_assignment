@@ -67,7 +67,7 @@ content-type: application/json
 
 
 ### PUT contact
-PUThttps://cse-341-personal-assignments-troy-d.onrender.com/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
+PUT https://cse-341-personal-assignments-troy-d.onrender.com/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
 content-type: application/json
 
 {
@@ -78,4 +78,4 @@ content-type: application/json
     "birthday":"05/04/1901"
 }
 ### DELETE contact
-DELETEhttps://cse-341-personal-assignments-troy-d.onrender.com/contacts/633b844a2ffdf3c327b3dc9c HTTP/1.1
+DELETE https://cse-341-personal-assignments-troy-d.onrender.com/contacts/633b844a2ffdf3c327b3dc9c HTTP/1.1
