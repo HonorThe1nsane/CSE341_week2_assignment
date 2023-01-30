@@ -11,8 +11,7 @@ GET http://localhost:8080/contacts/633b860bf1ca7e3a1f473ae6
 
 
 ###
-
-GET https://cse-341-week2.onrender.com/localhost:8080/contacts
+ https://cse-341-week2.onrender.com/contacts
 
 ###
-GET https://cse-341-week2.onrender.com/contacts/633b860bf1ca7e3a1f473ae6
+ https://cse-341-week2.onrender.com/contacts/633b860bf1ca7e3a1f473ae6
