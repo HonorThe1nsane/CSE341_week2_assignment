@@ -7,7 +7,7 @@ const { person } = require('../models');
 const db = require('../models');
 const Person = db.person;
 
-const apiKey = 'WD1iqsbf6aEgjm4AToTiLv51TvwUvfGqcsJj6vIWJ4teKQOtiD3E475XsxbLA2tR';
+// const apiKey = 'WD1iqsbf6aEgjm4AToTiLv51TvwUvfGqcsJj6vIWJ4teKQOtiD3E475XsxbLA2tR';
 
 
 const getData = async (req, res) => {
