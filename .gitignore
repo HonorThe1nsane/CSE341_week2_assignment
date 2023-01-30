@@ -1,2 +1,262 @@
 node_modules
 .env
+
+
+////////////////////////////////
+#This is from controllers/contacts.js
+# //Swagger function
+# exports.findAll = (req, res) => {
+
+#   console.log(req.header('apiKey'));
+#   if (req.header('apiKey') === apiKey) {
+#     Person.find(
+#       {},
+#       {
+#         firstName: 1,
+#         lastName: 1,
+#         email: 1,
+#         favoriteColor: 1,
+#         birthday: 1,
+#         _id: 0,
+#       }
+#     )
+#       .then((data) => {
+#         res.send(data);
+#       })
+#       .catch((err) => {
+#         res.status(500).send({
+#           message:
+#             err.message || 'Some error occurred while retrieving temples.',
+#         });
+#       });
+#   } else {
+#     res.send('Invalid apiKey, please read the documentation.');
+#   }
+# };
+# //Work with swagger
+# exports.getSingleData = (req, res) => {
+
+#   const id = new ObjectId(req.params.id);
+#   console.log(id);
+#   if (req.header('apiKey') === apiKey) {
+#     Person.find({ _id: id })
+#       .then((data) => {
+#         if (!data)
+#           res
+#             .status(404)
+#             .send({ message: 'Not Person found  with id ' + id });
+#         else res.send(data[0]);
+#       })
+#       .catch((err) => {
+#         res.status(500).send({
+#           message: 'Error retrieving Person with id=' + id,
+#         });
+#       });
+#   } else {
+#     res.send('Invalid apiKey, please read the documentation.');
+#   }
+# };
+# // rest client
+# const createNewContact = async (req, res) => {
+#   const contact = {
+#     firstName: req.body.firstName,
+#     lastName: req.body.lastName,
+#     email: req.body.email,
+#     favoriteColor: req.body.favoriteColor,
+#     birthday: req.body.birthday
+#   };
+#   const response = await mongodb.getDb().db().collection('people').insertOne(contact);
+#   if (response.acknowledged) {
+#     res.status(201).json(response);
+#   } else {
+#     res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+#   }
+# };
+# //work with swagger
+# exports.createNewContact = (req, res) => {
+#   const person = {
+#     firstName: req.body.firstName,
+#     lastName: req.body.lastName,
+#     email: req.body.email,
+#     favoriteColor: req.body.favoriteColor,
+#     birthday: req.body.birthday
+#   };
+#   person
+#     .save(person)
+#     .then((data) => {
+#       res.send(data);
+#     })
+#     .catch((err) => {
+#       res.status(500).send({
+#         message:
+#           err.message || 'Some error occurred while creating the Temple.',
+#       });
+#     });
+# };
+# //rest client function
+# const updatePerson = async (req, res) => {
+#   if (!req.body) {
+#     return res.status(400).send({
+#       message: 'Data to update can not be empty!',
+#     });
+#   }
+#   const userId = new ObjectId(req.params.id);
+#   const person = {
+#     firstName: req.body.firstName,
+#     lastName: req.body.lastName,
+#     email: req.body.email,
+#     favoriteColor: req.body.favoriteColor,
+#     birthday: req.body.birthday
+#   };
+#   const response = await mongodb.getDb().db().collection('people').replaceOne({ _id: userId }, person);
+#   console.log(response);
+#   if (response.modifiedCount > 0) {
+#     res.status(204).send();
+#   } else {
+#     res.status(500).json(response.error || 'Some error occurred while updating the person in contacts.');
+#   }
+# };
+# //swagger
+# exports.update = (req, res) => {
+#   if (!req.body) {
+#     return res.status(400).send({
+#       message: 'Data to update can not be empty!',
+#     });
+#   }
+
+#   const id = new ObjectId(req.params.id);
+
+#   Person.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+#     .then((data) => {
+#       if (!data) {
+#         res.status(404).send({
+#           message: `Cannot update Person with id=${id}. Maybe Person was not found!`,
+#         });
+#       } else res.send({ message: 'Person was updated successfully.' });
+#     })
+#     .catch((err) => {
+#       res.status(500).send({
+#         message: 'Error updating Person with id=' + id,
+#       });
+#     });
+# };
+
+
+# //Rest client
+# const deletePerson = async (req, res) => {
+#   const userId = new ObjectId(req.params.id);
+#   const response = await mongodb.getDb().db().collection('people').remove({ _id: userId }, true);
+#   console.log(response);
+#   if (response.deletedCount > 0) {
+#     res.status(204).send();
+#   } else {
+#     res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+#   }
+# };
+
+# // Swagger
+
+# // Delete a Temple with the specified id in the request
+# exports.delete = (req, res) => {
+#   const id = req.params.id;
+
+#   Person.findByIdAndRemove(id)
+#     .then((data) => {
+#       if (!data) {
+#         res.status(404).send({
+#           message: `Cannot delete Person with id=${id}. Maybe the person was not found!`,
+#         });
+#       } else {
+#         res.send({
+#           message: 'Person was deleted successfully!',
+#         });
+#       }
+#     })
+#     .catch((err) => {
+#       res.status(500).send({
+#         message: 'Could not delete Person with id=' + id,
+#       });
+#     });
+# };
+# #
+
+
+# ////////////////////////////////
+# # This is from routes/contacts.js
+# # router.post('/', contactsController.createNewContact);
+
+# # router.put('/:id', contactsController.updatePerson);
+
+# # router.delete('/:id', contactsController.deletePerson);
+
+# This is from routes.rest file
+# ### Create contact
+# POST http://localhost:8080/contacts HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Troy",
+#     "lastName":"Davidson",
+#     "email":"tDawg@booya.com",
+#     "favoriteColor":"Red",
+#     "birthday":"05/04/2016"
+# }
+
+
+
+# ### PUT contact
+# PUT http://localhost:8080/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Dennis",
+#     "lastName":"Davidson",
+#     "email":"dDavidson@testboy.com",
+#     "favoriteColor":"Green",
+#     "birthday":"05/04/1901"
+# }
+# ### DELETE contact
+# DELETE http://localhost:8080/contacts/632ff12d7419b9a97ed58cfb HTTP/1.1
+
+
+
+
+# ###Render PRODUCTION ############################
+
+
+# GET https://cse-341-personal-assignments-troy-d.onrender.com/contacts
+# # the request above returns a json object with all contact information from data
+
+
+# ###Single requests
+
+# GET https://cse-341-personal-assignments-troy-d.onrender.com/contacts/632ff12d7419b9a97ed58cf9
+
+
+# ### Create contact
+# POSThttps://cse-341-personal-assignments-troy-d.onrender.com/contacts HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Dennis",
+#     "lastName":"Davidson",
+#     "email":"dDavidson@booya.com",
+#     "favoriteColor":"Red",
+#     "birthday":"05/04/1901"
+# }
+
+
+
+# ### PUT contact
+# PUT https://cse-341-personal-assignments-troy-d.onrender.com/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Dennis",
+#     "lastName":"Davidson",
+#     "email":"dDavidson@testboy.com",
+#     "favoriteColor":"Green",
+#     "birthday":"05/04/1901"
+# }
+# ### DELETE contact
+# DELETE https://cse-341-personal-assignments-troy-d.onrender.com/contacts/633b844a2ffdf3c327b3dc9c HTTP/1.1
