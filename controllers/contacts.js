@@ -71,4 +71,15 @@ const updatePerson = async (req, res) => {
   }
 };
 
-module.exports = { getSingleData, getData, createNewContact, updatePerson };
+const deletePerson = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  const response = await mongodb.getDb().db().collection('people').remove({ _id: userId }, true);
+  console.log(response);
+  if (response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+  }
+};
+
+module.exports = { getSingleData, getData, createNewContact, updatePerson, deletePerson };
