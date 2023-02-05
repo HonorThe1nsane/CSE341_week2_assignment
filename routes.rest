@@ -15,16 +15,16 @@ https://cse-341-week2.onrender.com/contacts
 ###
 https://cse-341-week2.onrender.com/contacts/633b860bf1ca7e3a1f473ae6
 
-##
+###
 
 POST http://localhost:8080/contacts HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Troy",
+    "firstName":"Dennis",
     "lastName":"Davidson",
-    "email":"tDawg@booya.com",
-    "favoriteColor":"Red",
+    "email":"dDawg@booya.com",
+    "favoriteColor":"Blue",
     "birthday":"05/04/2016"
 }
 
@@ -38,11 +38,11 @@ content-type: application/json
     "firstName":"Dennis",
     "lastName":"Davidson",
     "email":"dDavidson@testboy.com",
-    "favoriteColor":"Green",
+    "favoriteColor":"red2",
     "birthday":"05/04/1901"
 }
 ### DELETE contact
-DELETE http://localhost:8080/contacts/632ff12d7419b9a97ed58cfb HTTP/1.1
+DELETE http://localhost:8080/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
 
 
 
