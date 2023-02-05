@@ -15,6 +15,7 @@ https://cse-341-week2.onrender.com/contacts
 ###
 https://cse-341-week2.onrender.com/contacts/633b860bf1ca7e3a1f473ae6
 
+##
 
 POST http://localhost:8080/contacts HTTP/1.1
 content-type: application/json
@@ -71,7 +72,7 @@ content-type: application/json
     "firstName":"Dennis",
     "lastName":"Davidson",
     "email":"dDavidson@testboy.com",
-    "favoriteColor":"Green",
+    "favoriteColor":"Red",
     "birthday":"05/04/1901"
 }
 
