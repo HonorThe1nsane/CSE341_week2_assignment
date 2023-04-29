@@ -4,77 +4,7 @@ GET http://localhost:8080/contacts
 # the request above returns a json object with all contact information from data
 
 
-###Single requests
-
-GET http://localhost:8080/contacts/632ff12d7419b9a97ed58cfa
-
-
 
 ###
 https://cse-341-week2.onrender.com/contacts
 ###
-https://cse-341-week2.onrender.com/contacts/63df25b2d8cbd944cdcd0bf4
-
-###
-
-POST http://localhost:8080/contacts HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Dennis",
-    "lastName":"Davidson",
-    "email":"dDawg@booya.com",
-    "favoriteColor":"Blue2",
-    "birthday":"05/04/2016"
-}
-
-
-
-### PUT contact
-PUT http://localhost:8080/contacts/63df3067c8e2c59de0a72fb2 HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Dennis",
-    "lastName":"Davidson",
-    "email":"dDavidson@testboy.com",
-    "favoriteColor":"Green3",
-    "birthday":"05/04/1901"
-}
-### DELETE contact
-DELETE http://localhost:8080/contacts/63df3067c8e2c59de0a72fb2 HTTP/1.1
-
-
-
-
-###Render PRODUCTION ############################
-
-
-### Create contact
-POST https://cse-341-week2.onrender.com/contacts HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Dennis",
-    "lastName":"Davidson",
-    "email":"dDavidson@booya.com",
-    "favoriteColor":"Red3",
-    "birthday":"05/04/1901"
-}
-
-
-
-### PUT contact
-PUT https://cse-341-week2.onrender.com/contacts/63df30e638382f2a14d198af HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Dennis",
-    "lastName":"Davidson",
-    "email":"dDavidson@testboy.com",
-    "favoriteColor":"Red",
-    "birthday":"05/04/1901"
-}
-
-### DELETE contact
-DELETE https://cse-341-week2.onrender.com/contacts/63df30e638382f2a14d198af HTTP/1.1

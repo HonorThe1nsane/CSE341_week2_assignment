@@ -4,6 +4,145 @@ package-lock.json
 
 
 ////////////////////////////////
+
+# rest routes
+
+# https://cse-341-week2.onrender.com/contacts/63df25b2d8cbd944cdcd0bf4
+
+# ###
+
+# POST http://localhost:8080/contacts HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Dennis",
+#     "lastName":"Davidson",
+#     "email":"dDawg@booya.com",
+#     "favoriteColor":"Blue2",
+#     "birthday":"05/04/2016"
+# }
+
+
+
+# ### PUT contact
+# PUT http://localhost:8080/contacts/63df3067c8e2c59de0a72fb2 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Dennis",
+#     "lastName":"Davidson",
+#     "email":"dDavidson@testboy.com",
+#     "favoriteColor":"Green3",
+#     "birthday":"05/04/1901"
+# }
+# ### DELETE contact
+# DELETE http://localhost:8080/contacts/63df3067c8e2c59de0a72fb2 HTTP/1.1
+
+
+
+
+# ###Render PRODUCTION ############################
+
+
+# ### Create contact
+# POST https://cse-341-week2.onrender.com/contacts HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Dennis",
+#     "lastName":"Davidson",
+#     "email":"dDavidson@booya.com",
+#     "favoriteColor":"Red3",
+#     "birthday":"05/04/1901"
+# }
+
+
+
+# ### PUT contact
+# PUT https://cse-341-week2.onrender.com/contacts/63df30e638382f2a14d198af HTTP/1.1
+# content-type: application/json
+
+# {
+#     "firstName":"Dennis",
+#     "lastName":"Davidson",
+#     "email":"dDavidson@testboy.com",
+#     "favoriteColor":"Red",
+#     "birthday":"05/04/1901"
+# }
+
+# ### DELETE contact
+# DELETE https://cse-341-week2.onrender.com/contacts/63df30e638382f2a14d198af HTTP/1.1
+#This is for the routes
+# router.get('/:id', contactsController.getSingleData);
+
+# router.post('/', contactsController.createNewContact);
+
+# router.put('/:id', contactsController.updatePerson);
+
+# router.delete('/:id', contactsController.deletePerson);
+
+#This is from controllers/contacts.js
+# //rest client function
+# const getSingleData = async (req, res) => {
+#   const userId = new ObjectId(req.params.id);
+#   const result = await mongodb.getDb().db().collection('people').find({ _id: userId });
+#   result.toArray().then((lists) => {
+#     res.setHeader('Content-Type', 'application/json');
+#     res.status(200).json(lists[0]);
+
+#   });
+
+# };
+
+# const createNewContact = async (req, res) => {
+#   const contact = {
+#     firstName: req.body.firstName,
+#     lastName: req.body.lastName,
+#     email: req.body.email,
+#     favoriteColor: req.body.favoriteColor,
+#     birthday: req.body.birthday
+#   };
+#   const response = await mongodb.getDb().db().collection('people').insertOne(contact);
+#   if (response.acknowledged) {
+#     res.status(201).json(response);
+#   } else {
+#     res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+#   }
+# };
+
+# const updatePerson = async (req, res) => {
+#   if (!req.body) {
+#     return res.status(400).send({
+#       message: 'Data to update can not be empty!',
+#     });
+#   }
+#   const userId = new ObjectId(req.params.id);
+#   const person = {
+#     firstName: req.body.firstName,
+#     lastName: req.body.lastName,
+#     email: req.body.email,
+#     favoriteColor: req.body.favoriteColor,
+#     birthday: req.body.birthday
+#   };
+#   const response = await mongodb.getDb().db().collection('people').replaceOne({ _id: userId }, person);
+#   console.log(response);
+#   if (response.modifiedCount > 0) {
+#     res.status(204).send();
+#   } else {
+#     res.status(500).json(response.error || 'Some error occurred while updating the person in contacts.');
+#   }
+# };
+
+# const deletePerson = async (req, res) => {
+#   const userId = new ObjectId(req.params.id);
+#   const response = await mongodb.getDb().db().collection('people').remove({ _id: userId }, true);
+#   console.log(response);
+#   if (response.deletedCount > 0) {
+#     res.status(204).send();
+#   } else {
+#     res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+#   }
+# };
 #This is from controllers/contacts.js
 # //Swagger function
 # exports.findAll = (req, res) => {
