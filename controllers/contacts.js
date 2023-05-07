@@ -81,4 +81,4 @@ const deletePerson = async (req, res) => {
   }
 };
 
-module.exports = { getData, deletePerson, getSingleData, createNewContact, updatePerson};
+module.exports = { getData, deletePerson, getSingleData, createNewContact, updatePerson };
