@@ -1,10 +1,81 @@
 
 
-GET http://localhost:8080/contacts
+GET http://localhost:8080/contacts/633f229950179817af9448e2
 # the request above returns a json object with all contact information from data
 
 
 
+
+
+### Create contact
+POST http://localhost:8080/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Troy",
+    "lastName":"Davidson",
+    "email":"tDawg@booya.com",
+    "favoriteColor":"Red",
+    "birthday":"05/04/2016"
+}
+
+
+
+### PUT contact
+PUT http://localhost:8080/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Dennis",
+    "lastName":"Davidson",
+    "email":"dDavidson@testboy.com",
+    "favoriteColor":"Green",
+    "birthday":"05/04/1901"
+}
+### DELETE contact
+DELETE http://localhost:8080/contacts/632ff12d7419b9a97ed58cfb HTTP/1.1
+
+
+
+
+###Render PRODUCTION ############################
+
+
+GET https://cse-341-personal-assignments-troy-d.onrender.com/contacts
+# the request above returns a json object with all contact information from data
+
+
+###Single requests
 ###
-https://cse-341-week2.onrender.com/contacts
+GET https://cse-341-week2.onrender.com/contacts
 ###
+
+
+
+### Create contact
+POST https://cse-341-week2.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Dennis",
+    "lastName":"Davidson",
+    "email":"dDavidson@booya.com",
+    "favoriteColor":"Red",
+    "birthday":"05/04/1901"
+}
+
+
+
+### PUT contact
+PUT https://cse-341-week2.onrender.com/contacts/633b860bf1ca7e3a1f473ae6 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Dennis",
+    "lastName":"Davidson",
+    "email":"dDavidson@testboy.com",
+    "favoriteColor":"Green",
+    "birthday":"05/04/1901"
+}
+### DELETE contact
+DELETE https://cse-341-week2.onrender.com/contacts/633b844a2ffdf3c327b3dc9c HTTP/1.1
