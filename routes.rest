@@ -22,7 +22,7 @@ content-type: application/json
 
 
 ### PUT contact
-PUT http://localhost:8080/contacts/645709e0f725a7d6c92942e8
+PUT http://localhost:8080/contacts/64570a9b9d2c6bfd0a31abbc
 content-type: application/json
 
 {
@@ -33,16 +33,13 @@ content-type: application/json
     "birthday":"05/04/1901"
 }
 ### DELETE contact
-DELETE http://localhost:8080/contacts/645709e0f725a7d6c92942e8
+DELETE http://localhost:8080/contacts/64570a9b9d2c6bfd0a31abbc
 
 
 
 
 ###Render PRODUCTION ############################
 
-
-GET https://cse-341-personal-assignments-troy-d.onrender.com/contacts
-# the request above returns a json object with all contact information from data
 
 
 ###Single requests
